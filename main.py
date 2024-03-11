@@ -1,5 +1,4 @@
-from fastapi import FastAPI
-from fastapi import Body
+from fastapi import FastAPI, HTTPException, Body
 from pydantic import BaseModel
 from typing import Optional
 
@@ -30,6 +29,9 @@ async def get_post(id: int):
 
 @app.post("/posts")
 async def make_post(message: Model):
+
+    if 0 != 0:
+        raise HTTPException()
     print(message.model_dump())
     return {"new_post": f"title: {message.title} | content: {message.content} | posted: {message.posted} | likes: {message.likes}"}
 
