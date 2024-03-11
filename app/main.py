@@ -36,7 +36,7 @@ async def make_post(message: Model):
     return {"new_post": f"title: {message.title} | content: {message.content} | posted: {message.posted} | likes: {message.likes}"}
 
 @app.put("/posts/{id}")
-async def update_post(message: Model):
+async def update_post(message: Model, id: int):
     return {}
 
 @app.delete("/posts/{id}")
